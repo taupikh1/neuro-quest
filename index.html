@@ -7,6 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Neuro Quest">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>NEURO QUEST</title>
 <meta name="description" content="NEURO QUEST: game asah otak offline untuk Android dan iPhone">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧠%3C/text%3E%3C/svg%3E">
@@ -69,23 +72,40 @@ html,body{overscroll-behavior-y:contain;-webkit-user-select:none;user-select:non
 .pt{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:9}
 #toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%);background:#1e2757;border:1px solid var(--cy);padding:10px 16px;border-radius:14px;z-index:10;max-width:90%;text-align:center}
 .opts.g3{grid-template-columns:repeat(3,1fr)}.g3 .opt{justify-content:center;font-size:28px}.g3 .opt i{display:none}
-.tiles{grid-template-columns:repeat(auto-fit,minmax(56px,1fr))}.tile{min-height:56px;border-radius:14px;border:1px solid rgba(139,149,201,.28);background:rgba(20,26,61,.85);font-size:24px;font-weight:700}.tile.d{opacity:.25;pointer-events:none}.tile:active{transform:scale(.96)}
+.tiles{grid-template-columns:repeat(auto-fit,minmax(56px,1fr))}.tile{min-height:56px;border-radius:14px;border:1px solid rgba(139,149,201,.28);background:rgba(20,26,61,.85);font-size:24px;font-weight:700}.tile.d{opacity:.25;pointer-events:none}.tile:active{transform:scale(.96)}.tile.wrong{border-color:var(--no);background:rgba(239,68,68,.25);animation:shk .35s}
 input{width:100%;font:inherit;color:var(--tx);background:rgba(10,14,39,.7);border:1px solid rgba(139,149,201,.3);border-radius:12px;padding:12px;margin-top:6px;-webkit-user-select:text;user-select:text}input[type=range]{padding:0;accent-color:var(--cy)}
 .av{border:0;padding:0;flex:none}.warn{display:inline-block;color:#f87171!important;font-weight:800;animation:wp .5s infinite alternate}@keyframes wp{to{transform:scale(1.25)}}
 #nav{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;justify-content:center;gap:2px;padding:6px 8px calc(env(safe-area-inset-bottom,0px) + 6px);background:rgba(10,14,39,.94);border-top:1px solid rgba(139,149,201,.2)}#nav[hidden]{display:none}
 #nav button{flex:1;max-width:80px;background:none;border:0;border-radius:12px;padding:5px 0;font-size:20px;display:flex;flex-direction:column;align-items:center;color:var(--mu)}#nav button.on{color:var(--cy);background:rgba(34,211,238,.12)}#nav small{font-size:10px;color:inherit}
 body.hasnav #app{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 96px)}
 .lvu{position:fixed;inset:0;display:grid;place-content:center;text-align:center;z-index:9;pointer-events:none;font-weight:900;font-size:28px;color:var(--cy);text-shadow:0 0 24px var(--cy);animation:lvu 1.8s ease forwards}.lvu b{font-size:96px;display:block}@keyframes lvu{0%{opacity:0;transform:scale(.6)}20%{opacity:1;transform:scale(1.05)}80%{opacity:1}100%{opacity:0}}
+.wrong-list{max-height:320px;overflow-y:auto;text-align:left}.wrong-item{padding:10px 0;border-bottom:1px solid rgba(139,149,201,.15)}.wrong-item:last-child{border-bottom:0}.wrong-item b{display:block;margin-bottom:4px}.wrong-item small{color:var(--mu)}
+.note{font-size:12px;color:var(--mu);margin-top:6px}
+.streak-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.3);border-radius:999px;padding:4px 12px;font-size:13px;margin-top:6px}
+.share-box{background:rgba(10,14,39,.6);border:1px dashed rgba(139,149,201,.35);border-radius:12px;padding:12px;font-size:14px;text-align:left;margin:10px 0;word-break:break-word}
+.mdl{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;background:rgba(5,8,25,.72)}.mdl .card{max-width:340px;width:100%}.mdl p{white-space:pre-line;margin:0}
+body.hasnav #toast{bottom:calc(env(safe-area-inset-bottom,0px) + 84px)}.share-box{-webkit-user-select:text;user-select:text}.seq{white-space:pre-line}.tiles.g3{max-width:260px;margin:12px auto}
+.prof .nm{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}.cta small{display:block;color:rgba(4,18,43,.72);font-weight:600;font-size:12px;letter-spacing:0;margin-top:2px}
+.dly{border-color:rgba(34,211,238,.45);box-shadow:0 0 22px rgba(34,211,238,.15)}.dly em{margin-left:auto;white-space:nowrap}
+.gm{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tl{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:0;text-align:left;min-height:104px}.tl .mi{width:38px;height:38px;font-size:22px}.tl small{font-size:12px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body.noanim *{animation:none!important;transition:none!important}
 </style>
 </head>
 <body>
 <div id="app"></div>
-<nav id="nav" hidden><button data-a="menu" data-t="menu">🏠<small>Home</small></button><button data-a="play" data-t="play">🎮<small>Main</small></button><button data-a="cats" data-t="cats">🔷<small>Kategori</small></button><button data-a="ach" data-t="ach">🏆<small>Prestasi</small></button><button data-a="stats" data-t="stats">📊<small>Statistik</small></button><button data-a="set" data-t="set">⚙️<small>Atur</small></button></nav>
+<nav id="nav" hidden>
+<button data-a="menu" data-t="menu">🏠<small>Home</small></button>
+<button data-a="play" data-t="play">🎮<small>Main</small></button>
+<button data-a="cats" data-t="cats">🔷<small>Kategori</small></button>
+<button data-a="ach" data-t="ach">🏆<small>Prestasi</small></button>
+<button data-a="stats" data-t="stats">📊<small>Statistik</small></button>
+<button data-a="set" data-t="set">⚙️<small>Atur</small></button>
+</nav>
 <noscript><p style="padding:24px;text-align:center">NEURO QUEST membutuhkan JavaScript. Aktifkan JavaScript lalu muat ulang halaman.</p></noscript>
 
 <script>
-/* ===== DATA: bank soal modular. Tambah soal: Bank.add(...) / generator: Bank.gen(...) ===== */
+/* ===== DATA ===== */
 let R=Math.random;
 const rnd=(a,b)=>Math.floor(R()*(b-a+1))+a;
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -98,20 +118,18 @@ const Bank={S:[],G:{},
  gen(c,f){(this.G[c]=this.G[c]||[]).push(f)},
  make(c,d,used){
   const pool=this.S.filter(x=>x.c==c&&x.d==d&&!used.has(key(x))),g=this.G[c];
-  if(pool.length&&(!g||R()<.6))return pool[rnd(0,pool.length-1)];
-  if(g)for(let t=0;t<20;t++){const x=g[rnd(0,g.length-1)](d);x.c=c;x.d=d;if(!used.has(key(x)))return x}
+  if(pool.length&&(!g||R()<.55))return pool[rnd(0,pool.length-1)];
+  if(g)for(let t=0;t<25;t++){const x=g[rnd(0,g.length-1)](d);x.c=c;x.d=d;if(!used.has(key(x)))return x}
   const any=this.S.filter(x=>x.c==c&&!used.has(key(x)));
   return any.length?any[rnd(0,any.length-1)]:null}};
-const wrong=a=>{const sp=Math.max(4,Math.round(Math.abs(a)*.25)),s=new Set([a]);while(s.size<4)s.add(a+rnd(-sp,sp));return[a,...[...s].slice(1)]};
+const wrong=(a,d=1)=>{const sp=Math.max(3,Math.round(Math.abs(a)*(0.12+d*0.08))),s=new Set([a]);while(s.size<4)s.add(a+rnd(-sp,sp)||a+1);return[a,...[...s].slice(1)]};
 
-/* generator: Math (jawaban dihitung langsung, jadi pasti benar) */
 Bank.gen('math',d=>{const t=rnd(0,3),k=d+1;let q,a,e;
  if(t==0){const x=rnd(5*k,25*k),y=rnd(3*k,15*k),p=rnd(0,1);a=p?x+y:x-y;q=`${x} ${p?'+':'−'} ${y} = ?`;e=`${x} ${p?'+':'−'} ${y} = ${a}.`}
  else if(t==1){const x=rnd(2,5+3*d),y=rnd(3,9+3*d);a=x*y;q=`${x} × ${y} = ?`;e=`${x} × ${y} = ${a}.`}
  else if(t==2){const x=rnd(2,5+3*d),y=rnd(2,9),z=rnd(2,10+5*d);a=x*y+z;q=`${x} × ${y} + ${z} = ?`;e=`Perkalian dulu: ${x*y} + ${z} = ${a}.`}
  else{const n=rnd(50,100)*k,s=rnd(2,4+d),m=rnd(3,8);a=n-s*m;q=`Hitung mundur dari ${n}, kurangi ${s} sebanyak ${m} kali. Hasilnya?`;e=`${n} − (${s} × ${m}) = ${a}.`}
- return{q,o:wrong(a),e}});
-/* generator: Pattern */
+ return{q,o:wrong(a,d),e}});
 const pnext=t=>{const r=new Set(),[a,b,c,d]=t,d1=b-a,d2=c-b,d3=d-c;
  if(d1==d2&&d2==d3)r.add(d+d1);if(a&&b/a==c/b&&c/b==d/c)r.add(d*(b/a));if(d2-d1==d3-d2)r.add(d+d3+(d3-d2));if(c==a+b&&d==b+c)r.add(c+d);return r};
 const pgen=d=>{const t=rnd(0,Math.min(d+1,3)),s=rnd(1,9);let a,e,k;
@@ -119,25 +137,30 @@ const pgen=d=>{const t=rnd(0,Math.min(d+1,3)),s=rnd(1,9);let a,e,k;
  else if(t==1){k=rnd(2,3);a=[0,1,2,3,4].map(i=>s*k**i);e=`Setiap suku dikali ${k}.`}
  else if(t==2){k=rnd(1,3);let v=s;a=[v];for(let i=1;i<5;i++){v+=k*i;a.push(v)}e=`Selisihnya naik: ${k}, ${2*k}, ${3*k}, ${4*k}.`}
  else{a=[s,rnd(2,6)];for(let i=2;i<5;i++)a.push(a[i-1]+a[i-2]);e='Setiap suku adalah jumlah dua suku sebelumnya.'}
- return{q:`${a.slice(0,4).join(', ')}, ?`,o:wrong(a[4]),e:`${e} Suku berikutnya: ${a[4]}.`}};
+ return{q:`${a.slice(0,4).join(', ')}, ?`,o:wrong(a[4],d),e:`${e} Suku berikutnya: ${a[4]}.`}};
 Bank.gen('pattern',d=>{let q;for(let i=0;i<40;i++){q=pgen(d);if(pnext(q.q.split(', ').slice(0,4).map(Number)).size==1)break}return q});
-Bank.gen('pattern',d=>{const S=shuf(['🔺','🔵','🟩','⭐','🟣','🔶']),L=rnd(2,3+(d>1?1:0)),u=S.slice(0,L),n=L*2+1,seq=[...Array(n)].map((_,i)=>u[i%L]),c=u[n%L];
+Bank.gen('pattern',d=>{const S=shuf(['🔺','🔵','🟩','⭐','🟣','🔶','⬜','🖤']),L=rnd(2,3+(d>1?1:0)),u=S.slice(0,L),n=L*2+1,seq=[...Array(n)].map((_,i)=>u[i%L]),c=u[n%L];
  return{q:seq.join(' ')+'  ?',o:[c,...S.filter(x=>x!=c).slice(0,3)],e:`Pola ${u.join('')} berulang terus.`}});
-/* generator: Memory (soal menampilkan urutan, lalu disembunyikan) */
+Bank.gen('pattern',d=>{const base=shuf([1,2,3,4,5,6,7,8,9]).slice(0,3+d),seq=[...base,...base.slice().reverse()];
+ return{q:`Pola: ${seq.slice(0,seq.length-1).join(', ')}, ?`,o:wrong(seq[seq.length-1],d),e:`Pola mirror: ${base.join(', ')} lalu dibalik.`}});
+Bank.gen('pattern',d=>{const a=rnd(2,8),b=rnd(3,9),start=rnd(5,20);let seq=[start];for(let i=0;i<4;i++)seq.push(seq[i]+(i%2===0?a:b));
+ return{q:`${seq.slice(0,4).join(', ')}, ?`,o:wrong(seq[4],d),e:`Selisih bergantian +${a} dan +${b}.`}});
 Bank.gen('memory',d=>{const A=R()<.5?'0123456789'.split(''):['🟥','🟦','🟩','🟨','🟪'],n=3+d+(A.length>5?1:0),
  seq=[...Array(n)].map(()=>A[rnd(0,A.length-1)]),c=seq.join(' '),s=new Set([c]);
  while(s.size<4){const m=seq.slice(),i=rnd(0,n-1);m[i]=A.filter(x=>x!=m[i])[rnd(0,A.length-2)];s.add(m.join(' '))}
  return{q:'Urutan apa yang tadi ditampilkan?',show:c,o:[...s],e:`Urutan yang benar: ${c}.`}});
-/* generator: Word (susun huruf) */
-const WD=[['BUKU','MEJA','RUMAH','TANAH','HUTAN'],['SEKOLAH','PELANGI','KEBUN','MATAHARI'],['KOMPUTER','PERPUSTAKAAN','TELEVISI','PENGGARIS'],['PENGETAHUAN','KEMERDEKAAN','PEMERINTAHAN','TEKNOLOGI']];
-Bank.gen('word',d=>{const L=WD[d],w=L[rnd(0,L.length-1)];let sc=w;for(let t=0;t<30&&sc==w;t++)sc=shuf(w.split('')).join('');
+const WD=[['BUKU','MEJA','RUMAH','TANAH','HUTAN','AIR','API','BATU'],['SEKOLAH','PELANGI','KEBUN','MATAHARI','GUNUNG','SUNGAI'],['KOMPUTER','PERPUSTAKAAN','TELEVISI','PENGGARIS','KALENDER'],['PENGETAHUAN','KEMERDEKAAN','PEMERINTAHAN','TEKNOLOGI','KESEHATAN']];
+Bank.gen('word',d=>{const L=WD[Math.min(d,WD.length-1)],w=L[rnd(0,L.length-1)];let sc=w;for(let t=0;t<30&&sc==w;t++)sc=shuf(w.split('')).join('');
  return{q:`Susun huruf menjadi kata: ${sc}`,o:[w,...shuf(WD.flat().filter(x=>x!=w)).slice(0,3)],e:`Huruf-huruf itu membentuk kata ${w}.`}});
-/* generator: Logic (urutan tinggi/berat) */
-Bank.gen('logic',d=>{const n=3+(d>1?1:0),N=shuf(['Andi','Budi','Citra','Dewi','Eko']).slice(0,n),t=R()<.5,
+Bank.gen('logic',d=>{const n=3+(d>1?1:0),N=shuf(['Andi','Budi','Citra','Dewi','Eko','Fajar']).slice(0,n),t=R()<.5,
  q=N.slice(0,-1).map((x,i)=>`${x} lebih ${t?'tinggi':'berat'} dari ${N[i+1]}`).join('. ')+`. Siapa yang paling ${t?'pendek':'ringan'}?`,
  o=[N[n-1],...N.slice(0,n-1)];if(n==3)o.push('Tidak dapat ditentukan');
  return{q,o,e:`Urutannya ${N.join(' > ')}, jadi ${N[n-1]} paling ${t?'pendek':'ringan'}.`}});
-/* tabel data: tambah baris di sini untuk menambah soal (opsi salah diambil otomatis dari tabel) */
+Bank.gen('logic',d=>{const names=shuf(['Rina','Sita','Tono','Udin','Vina']).slice(0,3);
+ return{q:`${names[0]} berdiri di depan ${names[1]}. ${names[2]} di belakang ${names[1]}. Siapa di posisi paling belakang?`,
+ o:[names[2],names[0],names[1],'Tidak dapat ditentukan'],e:`Urutan dari depan: ${names[0]} → ${names[1]} → ${names[2]}.`}});
+Bank.gen('logic',d=>{const V=[['Jika semua A adalah B, dan beberapa B adalah C, maka:',['Beberapa A mungkin C','Semua A adalah C','Tidak ada A yang C','Semua C adalah A'],'Dari premis hanya bisa disimpulkan bahwa beberapa A mungkin termasuk C.'],['Semua kucing adalah hewan. Sebagian hewan berbulu. Pernyataan yang PASTI benar?',['Semua kucing adalah hewan','Semua kucing berbulu','Sebagian kucing tidak berbulu','Semua hewan adalah kucing'],'Hanya premis pertama yang pasti. Tidak ada info apakah kucing berbulu.'],['Jika hujan maka jalan basah. Jalan tidak basah. Kesimpulannya?',['Tidak hujan','Hujan','Jalan basah karena hujan','Tidak dapat disimpulkan'],'Kontraposisi: jalan tidak basah berarti tidak hujan.'],['Semua burung punya sayap. Penguin adalah burung. Maka?',['Penguin punya sayap','Penguin bisa terbang','Penguin bukan burung','Semua yang bersayap adalah burung'],'Penguin burung, dan semua burung punya sayap.']],v=V[rnd(0,3)];return{q:v[0],o:v[1],e:v[2]}});
+
 const TB={
  cap:[['Indonesia','Jakarta'],['Jepang','Tokyo'],['Prancis','Paris'],['Inggris','London'],['Mesir','Kairo'],['Italia','Roma'],['Jerman','Berlin'],['Malaysia','Kuala Lumpur'],['Thailand','Bangkok'],['Korea Selatan','Seoul'],
   ['Australia','Canberra'],['Kanada','Ottawa'],['Brasil','Brasilia'],['Turki','Ankara'],['Swiss','Bern'],['Maroko','Rabat'],['Vietnam','Hanoi'],['Filipina','Manila'],['Argentina','Buenos Aires'],['Spanyol','Madrid'],
@@ -147,10 +170,10 @@ const TB={
  pr:[['besar','raya','kecil'],['pandai','cerdas','bodoh'],['cepat','lekas','lambat'],['rajin','giat','malas'],['indah','elok','buruk'],['senang','gembira','sedih'],['kuat','perkasa','lemah'],['tinggi','jangkung','pendek'],
   ['miskin','papa','kaya'],['tua','renta','muda'],['bersih','higienis','kotor'],['hemat','irit','boros'],['rapi','teratur','berantakan'],['mudah','gampang','sulit'],['ramai','riuh','sepi']]};
 const pick=(a,n)=>shuf(a).slice(0,n);
-Bank.fixed=()=>Bank.S.length+TB.cap.length+TB.sym.length+TB.pr.length*2+['ab','pv','fn','rm','mt','pl','hw','cu'].reduce((n,k)=>n+TB[k].length,0);
-Bank.gen('know',d=>{const t=TB.cap,b=[0,10,25,40][d],[k,v]=t[rnd(b,b+19)];
+Bank.fixed=()=>Bank.S.length+TB.cap.length+TB.sym.length+TB.pr.length*2+['ab','pv','fn','rm','mt','pl','hw','cu','tokoh','sains','sj','tk','sg','ot','kb'].reduce((n,k)=>n+(TB[k]?TB[k].length:0),0);
+Bank.gen('know',d=>{const t=TB.cap,b=[0,10,25,40][d],[k,v]=t[rnd(b,Math.min(b+19,t.length-1))];
  return{q:`Ibu kota ${k}?`,o:[v,...pick(t.filter(x=>x[1]!=v).map(x=>x[1]),3)],e:`Ibu kota ${k} adalah ${v}.`}});
-Bank.gen('know',d=>{const t=TB.sym,a=d==0?[0,5]:d==1?[5,11]:[11,30],[k,v]=t[rnd(a[0],a[1]-1)];
+Bank.gen('know',d=>{const t=TB.sym,a=d==0?[0,5]:d==1?[5,11]:[11,Math.min(30,t.length)],[k,v]=t[rnd(a[0],a[1]-1)];
  return{q:`Simbol kimia untuk ${k.toLowerCase()}?`,o:[v,...pick(t.filter(x=>x[1]!=v).map(x=>x[1]),3)],e:`Simbol kimia ${k.toLowerCase()} adalah ${v}.`}});
 Bank.gen('word',d=>{const p=TB.pr,[w,s,a]=p[rnd(0,p.length-1)],syn=R()<.5,c=syn?s:a,trap=syn?a:s,pool=p.flatMap(x=>[x[1],x[2]]).filter(x=>x!=c&&x!=trap&&x!=w);
  return{q:`${syn?'Sinonim':'Antonim'} kata "${w}"?`,o:[c,trap,...pick(pool,2)],e:`"${w}" bersinonim dengan "${s}" dan berantonim dengan "${a}".`}});
@@ -159,12 +182,11 @@ Bank.gen('logic',d=>{const t=rnd(0,3);
  if(t==0){const i=rnd(0,6),k=rnd(2,[5,20,100,300][d]),c=HR[(i+k)%7];
   return{q:`Hari ini ${HR[i]}. ${k} hari lagi adalah hari apa?`,o:[c,...pick(HR.filter(x=>x!=c),3)],e:`${k} hari = ${Math.floor(k/7)} minggu lebih ${k%7} hari, jadi hari ${c}.`}}
  if(t==1){const m=rnd(2,20)*10000,p=[10,20,25,40,50][rnd(0,4)],s=m*(100+p)/100;
-  return{q:`Barang dibeli ${rp(m)} dan dijual ${rp(s)}. Berapa persen untung terhadap modal?`,o:wrong(p).map(x=>x+'%'),e:`Untung ${rp(s-m)} ÷ ${rp(m)} = ${p}%.`}}
+  return{q:`Barang dibeli ${rp(m)} dan dijual ${rp(s)}. Berapa persen untung terhadap modal?`,o:wrong(p,d).map(x=>x+'%'),e:`Untung ${rp(s-m)} ÷ ${rp(m)} = ${p}%.`}}
  if(t==2){const n=rnd(4,8+d*4),a=n*(n-1)/2;
-  return{q:`${n} orang saling berjabat tangan tepat sekali dengan setiap orang lain. Berapa total jabat tangan?`,o:wrong(a),e:`${n} × ${n-1} ÷ 2 = ${a}.`}}
+  return{q:`${n} orang saling berjabat tangan tepat sekali dengan setiap orang lain. Berapa total jabat tangan?`,o:wrong(a,d),e:`${n} × ${n-1} ÷ 2 = ${a}.`}}
  const x=rnd(6,12+d*4),k=rnd(3,5),s=x*(k-1);
- return{q:`Umur ayah ${k} kali umur Budi, selisih umur mereka ${s} tahun. Berapa umur Budi?`,o:wrong(x),e:`${k}x − x = ${s}, jadi x = ${x}.`}});
-/* tabel tambahan (satu baris = satu soal) */
+ return{q:`Umur ayah ${k} kali umur Budi, selisih umur mereka ${s} tahun. Berapa umur Budi?`,o:wrong(x,d),e:`${k}x − x = ${s}, jadi x = ${x}.`}});
 TB.cap.push(['Arab Saudi','Riyadh'],['Iran','Teheran'],['Irak','Baghdad'],['India','New Delhi'],['Tiongkok','Beijing'],['Rusia','Moskow'],['Afrika Selatan','Pretoria'],['Ethiopia','Addis Ababa'],['Ghana','Accra'],['Chili','Santiago'],['Kolombia','Bogota'],['Venezuela','Caracas'],['Kuba','Havana'],['Meksiko','Kota Meksiko'],['Portugal','Lisboa'],['Aljazair','Aljir'],['Belgia','Brussel'],['Austria','Wina'],['Polandia','Warsawa'],['Yunani','Athena'],['Swedia','Stockholm'],['Denmark','Kopenhagen'],['Irlandia','Dublin'],['Ukraina','Kyiv'],['Hongaria','Budapest'],['Nepal','Kathmandu'],['Bangladesh','Dhaka'],['Mongolia','Ulaanbaatar'],['Laos','Vientiane'],['Afghanistan','Kabul']);
 TB.sym.push(['Aluminium','Al'],['Magnesium','Mg'],['Fosfor','P'],['Silikon','Si'],['Litium','Li'],['Kobalt','Co'],['Mangan','Mn'],['Uranium','U'],['Kripton','Kr'],['Argon','Ar']);
 TB.pr.push(['berani','gagah','takut'],['jujur','lurus','curang'],['luas','lapang','sempit'],['dekat','karib','jauh'],['baru','mutakhir','lama'],['gelap','kelam','terang'],['awal','mula','akhir'],['sehat','bugar','sakit'],['cantik','jelita','jelek'],['sedikit','secuil','banyak'],['tenang','damai','gaduh'],['sunyi','hening','bising']);
@@ -176,7 +198,9 @@ Object.assign(TB,{
  pl:[['ke-1','Merkurius'],['ke-2','Venus'],['ke-3','Bumi'],['ke-4','Mars'],['ke-5','Jupiter'],['ke-6','Saturnus'],['ke-7','Uranus'],['ke-8','Neptunus']],
  hw:[['Paus','Mamalia'],['Kelelawar','Mamalia'],['Ular','Reptil'],['Katak','Amfibi'],['Hiu','Ikan'],['Elang','Burung'],['Lebah','Serangga'],['Penyu','Reptil'],['Lumba-lumba','Mamalia'],['Kupu-kupu','Serangga'],['Salamander','Amfibi'],['Kadal','Reptil']],
  cu:[['Jepang','Yen'],['Amerika Serikat','Dolar'],['Inggris','Pound'],['India','Rupee'],['Tiongkok','Yuan'],['Korea Selatan','Won'],['Malaysia','Ringgit'],['Thailand','Baht'],['Rusia','Rubel'],['Swiss','Franc'],['Arab Saudi','Riyal'],['Filipina','Peso'],['Vietnam','Dong'],['Brasil','Real'],['Afrika Selatan','Rand'],['Jerman','Euro']],
- rm:[['IV',4],['IX',9],['XII',12],['XIV',14],['XIX',19],['XXIV',24],['XL',40],['XLIV',44],['XC',90],['CD',400],['CM',900],['MCMXLV',1945],['MMXXV',2025]]});
+ rm:[['IV',4],['IX',9],['XII',12],['XIV',14],['XIX',19],['XXIV',24],['XL',40],['XLIV',44],['XC',90],['CD',400],['CM',900],['MCMXLV',1945],['MMXXV',2025]],
+ tokoh:[['Soekarno','Proklamator & Presiden pertama RI'],['Hatta','Wakil Presiden pertama RI'],['Kartini','Pelopor emansipasi wanita'],['Diponegoro','Pemimpin Perang Jawa'],['Cut Nyak Dien','Pahlawan Aceh'],['Sudirman','Panglima Besar TNI pertama'],['Ki Hajar Dewantara','Bapak Pendidikan Nasional'],['WR Supratman','Pencipta lagu Indonesia Raya']],
+ sains:[['Fotosintesis','Proses tumbuhan membuat makanan dengan cahaya'],['Gravitasi','Gaya tarik-menarik antar benda bermassa'],['Atom','Partikel terkecil penyusun materi'],['DNA','Molekul pembawa informasi genetik'],['Evaporasi','Perubahan air menjadi uap'],['Kondensasi','Perubahan uap menjadi cairan'],['Osmosis','Pergerakan air melalui membran semipermeabel'],['Inersia','Kecenderungan benda mempertahankan keadaannya']]});
 const TT=(c,t,qf,ef)=>Bank.gen(c,d=>{const T=TB[t],n=T.length,b=Math.min(d*Math.floor(n/5),n-8),[k,v]=T[rnd(b,b+7)];return{q:qf(k),o:[v,...pick([...new Set(T.filter(x=>x[1]!==v).map(x=>x[1]))],3)],e:ef(k,v)}});
 TT('know','ab',k=>`Kepanjangan ${k}?`,(k,v)=>`${k} adalah singkatan dari ${v}.`);
 TT('know','pv',k=>`Ibu kota provinsi ${k}?`,(k,v)=>`Ibu kota provinsi ${k} adalah ${v}.`);
@@ -185,14 +209,30 @@ TT('math','mt',k=>`${k} sama dengan?`,(k,v)=>`${k} = ${v}.`);
 TT('know','pl',k=>`Planet ${k} dari Matahari?`,(k,v)=>`Urutan planet: Merkurius, Venus, Bumi, Mars, Jupiter, Saturnus, Uranus, Neptunus. ${v} berada di urutan ${k}.`);
 TT('know','hw',k=>`${k} termasuk golongan hewan?`,(k,v)=>`${k} termasuk golongan ${v.toLowerCase()}.`);
 TT('know','cu',k=>`Mata uang ${k}?`,(k,v)=>`Mata uang ${k} adalah ${v}.`);
-Bank.gen('math',d=>{const[k,v]=TB.rm[rnd(0,TB.rm.length-1)];return{q:`Angka Romawi ${k} sama dengan?`,o:wrong(v),e:`${k} = ${v}.`}});
-Bank.gen('math',d=>{const x=rnd(3,15+d*10),y=rnd(2,12+d*8),t=rnd(0,2),r=[x+y,x*y,x-y][t],op=['+','×','−'][t],h=rnd(0,1);return{q:`Isi angka yang hilang: ${h?'?':x} ${op} ${h?y:'?'} = ${r}`,o:wrong(h?x:y),e:`Jawabannya ${h?x:y}: ${x} ${op} ${y} = ${r}.`}});
-/* puzzle interaktif: tiles = ketuk berurutan (ord), grid = ketuk simbol yang berbeda */
+TT('know','tokoh',k=>`Siapa ${k}?`,(k,v)=>`${k}: ${v}.`);
+TT('know','sains',k=>`Apa itu ${k}?`,(k,v)=>`${k}: ${v}.`);
+Bank.gen('math',d=>{const[k,v]=TB.rm[rnd(0,TB.rm.length-1)];return{q:`Angka Romawi ${k} sama dengan?`,o:wrong(v,d),e:`${k} = ${v}.`}});
+Bank.gen('math',d=>{const x=rnd(3,15+d*10),y=rnd(2,12+d*8),t=rnd(0,2),r=[x+y,x*y,x-y][t],op=['+','×','−'][t],h=rnd(0,1);return{q:`Isi angka yang hilang: ${h?'?':x} ${op} ${h?y:'?'} = ${r}`,o:wrong(h?x:y,d),e:`Jawabannya ${h?x:y}: ${x} ${op} ${y} = ${r}.`}});
 Bank.gen('math',d=>{const n=4+(d>1)+(d>2),a=[...new Set([...Array(30)].map(()=>rnd(1,20+d*30)))].slice(0,n),asc=R()<.5,o=a.slice().sort((x,y)=>x-y),ord=(asc?o:o.reverse()).map(String);return{q:`Ketuk angka dari yang ${asc?'terkecil ke terbesar':'terbesar ke terkecil'}: ${a.join(', ')}`,tiles:a.map(String),ord,o:[ord.join(' ')],e:`Urutan yang benar: ${ord.join(', ')}.`}});
-Bank.gen('word',d=>{const L=WD[d],w=L[rnd(0,L.length-1)];let sc=w;for(let t=0;t<30&&sc==w;t++)sc=shuf(w.split('')).join('');return{q:`Ketuk huruf berurutan untuk menyusun kata: ${sc}`,tiles:sc.split(''),ord:w.split(''),o:[w],e:`Huruf-huruf itu membentuk kata ${w}.`}});
+Bank.gen('word',d=>{const L=WD[Math.min(d,WD.length-1)],w=L[rnd(0,L.length-1)];let sc=w;for(let t=0;t<30&&sc==w;t++)sc=shuf(w.split('')).join('');return{q:`Ketuk huruf berurutan untuk menyusun kata: ${sc}`,tiles:sc.split(''),ord:w.split(''),o:[w],e:`Huruf-huruf itu membentuk kata ${w}.`}});
 Bank.gen('memory',d=>{const C=['🟥','🟦','🟩','🟨','🟪','🟧'].slice(0,4+(d>1)),seq=[...Array(3+d)].map(()=>C[rnd(0,C.length-1)]);return{q:'Ketuk warna sesuai urutan tadi',rep:1,show:seq.join(' '),tiles:C,ord:seq,o:[seq.join(' ')],e:`Urutan yang benar: ${seq.join(' ')}.`}});
 Bank.gen('pattern',d=>{const P=[['🍎','🐟'],['🔺','🔵'],['🐶','🐱'],['⬆️','⬇️'],['⭐','🌟'],['🟥','🟧'],['🌕','🌖'],['↗️','↘️']],[a,b]=shuf(P[rnd(Math.min(d,1)*3,P.length-1)]),n=6+d*3;return{q:'Ketuk simbol yang berbeda dari yang lain',o:[b,...Array(n-1).fill(a)],grid:1,kk:a+b+n,e:`Semua simbol sama (${a}) kecuali satu: ${b}.`}});
-/* soal tertulis: [kategori, level 0-3, soal, [jawaban benar, salah, salah, salah], penjelasan] */
+
+Object.assign(TB,{
+ sj:[['Proklamasi kemerdekaan Indonesia','1945'],['Sumpah Pemuda','1928'],['Konferensi Asia-Afrika di Bandung','1955'],['Berdirinya Budi Utomo','1908'],['Perang Dunia II berakhir','1945'],['Manusia pertama mendarat di Bulan','1969'],['Runtuhnya Tembok Berlin','1989'],['Berdirinya PBB','1945'],['Revolusi Prancis dimulai','1789'],['Kolumbus tiba di benua Amerika','1492'],['Perang Dunia I dimulai','1914'],['Pertempuran 10 November di Surabaya','1945']],
+ tk:[['Air','H2O'],['Garam dapur','NaCl'],['Karbon dioksida','CO2'],['Oksigen','O2'],['Amonia','NH3'],['Metana','CH4'],['Asam klorida','HCl'],['Hidrogen peroksida','H2O2'],['Ozon','O3'],['Glukosa','C6H12O6'],['Natrium hidroksida','NaOH'],['Karbon monoksida','CO']],
+ sg:[['Segitiga','3 sisi'],['Segi empat','4 sisi'],['Segi lima','5 sisi'],['Segi enam','6 sisi'],['Segi tujuh','7 sisi'],['Segi delapan','8 sisi'],['Segi sembilan','9 sisi'],['Segi sepuluh','10 sisi']],
+ ot:[['Jantung','Peredaran darah'],['Paru-paru','Pernapasan'],['Lambung','Pencernaan'],['Otak','Saraf'],['Tulang','Rangka'],['Ginjal','Ekskresi'],['Usus halus','Pencernaan'],['Otot','Gerak']],
+ kb:[['analisis','analisa'],['asas','azas'],['atlet','atlit'],['hakikat','hakekat'],['izin','ijin'],['kualitas','kwalitas'],['praktik','praktek'],['risiko','resiko'],['standar','standard'],['teknik','tehnik'],['sistem','sistim'],['objek','obyek'],['nasihat','nasehat'],['jadwal','jadual'],['kuitansi','kwitansi'],['hipotesis','hipotesa']]});
+TT('know','sj',k=>`Tahun terjadinya peristiwa: ${k}?`,(k,v)=>`${k} terjadi pada tahun ${v}.`);
+TT('know','tk',k=>`Rumus kimia ${k.toLowerCase()}?`,(k,v)=>`Rumus kimia ${k.toLowerCase()} adalah ${v}.`);
+TT('math','sg',k=>`Banyak sisi pada ${k.toLowerCase()}?`,(k,v)=>`${k} memiliki ${v}.`);
+TT('know','ot',k=>`${k} merupakan bagian dari sistem?`,(k,v)=>`${k} termasuk sistem ${v.toLowerCase()}.`);
+Bank.gen('word',d=>{const T=TB.kb,[k,v]=T[rnd(0,T.length-1)],w=pick(T.filter(x=>x[0]!==k).map(x=>x[1]),2);return{q:'Penulisan mana yang baku?',kk:k,o:[k,v,...w],e:`Bentuk baku: "${k}", bukan "${v}".`}});
+Bank.gen('pattern',d=>{const s=rnd(1,4+d*2),g=rnd(0,1),a=[0,1,2,3].map(i=>g?(s+i)**2:s*2**i),n=g?(s+4)**2:s*16;return{q:`Lanjutkan deret: ${a.join(', ')}, ?`,o:wrong(n,d),e:g?`Bilangan kuadrat berurutan, berikutnya ${n}.`:`Setiap suku dikali 2, berikutnya ${n}.`}});
+Bank.gen('logic',d=>{const N=shuf(['Andi','Budi','Citra','Dewi','Eka','Fajar','Gita','Hadi']),k=3+(d>1),m=N.slice(0,k),t=R()<.5,c=m.slice(0,k-1).map((x,i)=>`${x} lebih tinggi dari ${m[i+1]}`),a=m[t?k-1:0];return{q:`${(d?shuf(c):c).join('. ')}. Siapa yang paling ${t?'pendek':'tinggi'}?`,o:[a,...shuf(N.filter(x=>x!==a)).slice(0,3)],e:`Urutan dari tertinggi: ${m.join(' > ')}.`}});
+Bank.gen('memory',d=>{const n=3+(d>1)+(d>2),c=shuf([1,2,3,4,5,6,7,8,9]).slice(0,n).sort((a,b)=>a-b),g=[0,1,2].map(r=>[0,1,2].map(k=>c.includes(r*3+k+1)?'🟦':'⬜').join(' ')).join('\n');return{q:'Ketuk nomor kotak yang tadi menyala (urut dari angka terkecil)',show:g,rt:1700,ns:1,tiles:['1','2','3','4','5','6','7','8','9'],ord:c.map(String),o:[c.join(' ')],e:`Kotak yang menyala: ${c.join(', ')}.`}});
+
 [
 ['logic',0,'Jika hari ini Rabu, 3 hari lagi hari apa?',['Sabtu','Jumat','Minggu','Kamis'],'Rabu + 3 hari = Kamis, Jumat, Sabtu.'],
 ['logic',1,'Pedagang membeli barang Rp80.000 dan menjualnya Rp100.000. Berapa persen untung terhadap modal?',['25%','20%','30%','15%'],'Untung 20.000 ÷ 80.000 = 25%.'],
@@ -202,11 +242,8 @@ Bank.gen('pattern',d=>{const P=[['🍎','🐟'],['🔺','🔵'],['🐶','🐱'],
 ['logic',3,'5 mesin membuat 5 barang dalam 5 menit. Berapa menit 100 mesin membuat 100 barang?',['5','100','20','1'],'Tiap mesin membuat 1 barang per 5 menit, jadi 100 mesin membuat 100 barang dalam 5 menit.'],
 ['logic',3,'Keong memanjat sumur 10 m: naik 3 m siang, turun 2 m malam. Hari ke berapa ia keluar?',['Hari ke-8','Hari ke-10','Hari ke-7','Hari ke-9'],'Bersih naik 1 m per hari. Setelah 7 hari di 7 m, hari ke-8 naik 3 m dan mencapai 10 m.'],
 ['know',0,'Planet terbesar di tata surya?',['Jupiter','Saturnus','Neptunus','Bumi'],'Diameter Jupiter sekitar 11 kali Bumi.'],
-['know',0,'Proklamasi kemerdekaan Indonesia dibacakan pada tahun?',['1945','1944','1946','1949'],'Proklamasi dibacakan 17 Agustus 1945.'],
 ['know',0,'Benua terluas di dunia?',['Asia','Afrika','Amerika Utara','Eropa'],'Asia mencakup sekitar 30% daratan Bumi.'],
 ['know',0,'Kepanjangan HTML?',['HyperText Markup Language','HyperTool Multi Language','HighText Machine Language','HyperText Making Language'],'HTML adalah bahasa markup dasar halaman web.'],
-['know',1,'Ibu kota Australia?',['Canberra','Sydney','Melbourne','Perth'],'Canberra dipilih sebagai kompromi antara Sydney dan Melbourne.'],
-['know',1,'Simbol kimia untuk emas?',['Au','Ag','Go','Gd'],'Au berasal dari kata Latin aurum.'],
 ['know',1,'Gas terbanyak di atmosfer Bumi?',['Nitrogen','Oksigen','Karbon dioksida','Argon'],'Nitrogen sekitar 78% atmosfer.'],
 ['know',1,'Organ penghasil insulin?',['Pankreas','Hati','Ginjal','Lambung'],'Insulin dihasilkan sel beta pankreas.'],
 ['know',1,'Satuan gaya dalam SI?',['Newton','Joule','Watt','Pascal'],'Newton (N) adalah satuan gaya.'],
@@ -237,31 +274,41 @@ Bank.gen('pattern',d=>{const P=[['🍎','🐟'],['🔺','🔵'],['🐶','🐱'],
 /* ===== STORAGE ===== */
 const Store={k:'neuroquest.v1',d:{},
  load(){let o={};try{o=JSON.parse(localStorage.getItem(this.k))||{}}catch(e){}
-  this.d=Object.assign({name:'Pemain',av:-1,vol:.6,hi:0,xp:0,score:0,answered:0,correct:0,bestStreak:0,games:0,sound:true,daily:'',cat:{},hist:[],ach:{},ds:0,last:''},typeof o=='object'&&o||{});this.fix()},
+  this.d=Object.assign({best:{},seen:false,name:'Pemain',av:-1,vol:.6,hi:0,xp:0,score:0,answered:0,correct:0,bestStreak:0,games:0,sound:true,vibrate:true,anim:true,daily:'',cat:{},hist:[],ach:{},ds:0,last:'',wrongLog:[],lastCfg:{n:10,cat:'all',diff:-1},streakRewarded:{}},typeof o=='object'&&o||{});this.fix()},
  fix(){const d=this.d;for(const k of['xp','score','answered','correct','bestStreak','games','ds','hi'])d[k]=Number.isFinite(+d[k])&&+d[k]>0?Math.floor(+d[k]):0;
-  d.sound=d.sound!==false;d.name=typeof d.name=='string'&&d.name.trim()?d.name.trim().slice(0,16):'Pemain';d.av=Number.isInteger(d.av)&&d.av>=-1&&d.av<12?d.av:-1;d.vol=typeof d.vol=='number'&&d.vol>=0&&d.vol<=1?d.vol:.6;for(const k of['daily','last'])if(typeof d[k]!='string')d[k]='';
-  for(const k of['ach','cat'])if(!d[k]||typeof d[k]!='object'||Array.isArray(d[k]))d[k]={};
+  d.sound=d.sound!==false;d.vibrate=d.vibrate!==false;d.anim=d.anim!==false;
+  d.name=typeof d.name=='string'&&d.name.trim()?d.name.trim().slice(0,16):'Pemain';d.av=Number.isInteger(d.av)&&d.av>=-1&&d.av<12?d.av:-1;d.vol=typeof d.vol=='number'&&d.vol>=0&&d.vol<=1?d.vol:.6;for(const k of['daily','last'])if(typeof d[k]!='string')d[k]='';
+  for(const k of['ach','cat','streakRewarded'])if(!d[k]||typeof d[k]!='object'||Array.isArray(d[k]))d[k]={};
   for(const c in d.cat)if(!Array.isArray(d.cat[c])||d.cat[c].length<2)d.cat[c]=[0,0];
-  d.hist=(Array.isArray(d.hist)?d.hist:[]).filter(x=>x&&MODES[x.m]).slice(0,30);
+  d.hist=(Array.isArray(d.hist)?d.hist:[]).filter(x=>x&&MODES[x.m]).slice(0,30).map(x=>({m:x.m,sc:Math.max(0,+x.sc||0),acc:Math.max(0,+x.acc||0),xp:Math.max(0,+x.xp||0),dt:String(x.dt||'').slice(0,12)}));
+  const sa=a=>Array.isArray(a)?a.slice(0,16).map(v=>String(v).slice(0,80)):undefined;
+  d.wrongLog=(Array.isArray(d.wrongLog)?d.wrongLog:[]).filter(x=>x&&typeof x=='object').slice(0,50).map(x=>({q:String(x.q||'').slice(0,300),a:String(x.a||'').slice(0,200),e:String(x.e||'').slice(0,300),c:CATS[x.c]?x.c:'logic',d:Math.min(3,Math.max(0,+x.d||0)),o:sa(x.o),sh:String(x.sh||'').slice(0,120),tiles:sa(x.tiles),ord:sa(x.ord),grid:x.grid?1:undefined,rep:x.rep?1:undefined,ns:x.ns?1:undefined,n:Math.max(1,Math.floor(+x.n||1)),dt:String(x.dt||'').slice(0,12)}));
+  d.seen=d.seen===true;if(!d.best||typeof d.best!='object'||Array.isArray(d.best))d.best={};for(const k in d.best)if(!MODES[k]||!Number.isFinite(+d.best[k]))delete d.best[k];else d.best[k]=Math.max(0,Math.floor(+d.best[k]));
+  for(const k in d.ach)if(!ACH.some(a=>a[0]==k))delete d.ach[k];else d.ach[k]=String(d.ach[k]).slice(0,12);
+  if(!d.lastCfg||typeof d.lastCfg!=='object')d.lastCfg={n:10,cat:'all',diff:-1};
   try{localStorage.setItem('nq.probe','1');localStorage.removeItem('nq.probe')}catch(e){this.fail=true}},
  save(){try{localStorage.setItem(this.k,JSON.stringify(this.d))}catch(e){this.fail=true}},
- reset(){try{localStorage.removeItem(this.k)}catch(e){}this.load()}};
+ reset(){try{localStorage.removeItem(this.k)}catch(e){}this.load()},
+ export(){const blob=new Blob([JSON.stringify(this.d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='neuroquest-progress.json';a.click();URL.revokeObjectURL(a.href);toast('Progress diexport')},
+ import(file){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(o&&typeof o==='object'){this.d=Object.assign(this.d,o);this.fix();this.save();toast('Progress diimpor');UI.menu()}else toast('File tidak valid')}catch(e){toast('Gagal membaca file')}};r.readAsText(file)}};
 
 /* ===== AUDIO + EFEK ===== */
 const Sfx={c:null,
  p(f,d=.12,t='sine',s=0){if(!Store.d.sound||Store.d.vol<=0)return;try{const c=this.c=this.c||new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain(),z=c.currentTime+s;
   if(c.state=='suspended')c.resume();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(.3*Store.d.vol,z);g.gain.exponentialRampToValueAtTime(.001,z+d);o.connect(g);g.connect(c.destination);o.start(z);o.stop(z+d)}catch(e){}},
  ok(st=0){const k=1+Math.min(st,6)*.06;this.p(660*k,.1);this.p(880*k,.16,'sine',.1)},tap(){this.p(480,.04,'triangle')},no(){this.p(180,.28,'sawtooth')},up(){[523,659,784,1047].forEach((f,i)=>this.p(f,.18,'triangle',i*.12))}};
-function burst(x,y,n=14){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+function burst(x,y,n=14){if(calm())return;
  for(let i=0;i<n;i++){const p=document.createElement('i'),a=Math.random()*6.28,r=40+Math.random()*70;p.className='pt';
   p.style.cssText=`left:${x}px;top:${y}px;background:hsl(${180+Math.random()*120},90%,62%)`;document.body.appendChild(p);
   p.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*r}px,${Math.sin(a)*r}px) scale(0)`,opacity:0}],{duration:650,easing:'ease-out'}).onfinish=()=>p.remove()}}
-function toast(t){let e=document.getElementById('toast');if(e)e.remove();e=document.createElement('div');e.id='toast';e.textContent=t;document.body.appendChild(e);clearTimeout(toast.t);toast.t=setTimeout(()=>e.remove(),2200)}
-
-const calm=()=>matchMedia('(prefers-reduced-motion:reduce)').matches;
+function toast(t){let e=document.getElementById('toast');if(e)e.remove();e=document.createElement('div');e.id='toast';e.setAttribute('role','status');e.textContent=t;document.body.appendChild(e);clearTimeout(toast.t);toast.t=setTimeout(()=>e.remove(),2200)}
+function modal(t,ok,cancel,cb){let m=document.getElementById('mdl');if(m)m.remove();m=document.createElement('div');m.id='mdl';m.className='mdl';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
+ m.innerHTML=`<div class="card"><p>${esc(t)}</p><div class="row" style="margin-top:14px">${cancel?`<button class="ghost" data-a="mno">${esc(cancel)}</button>`:''}<button class="cta" style="margin:0;animation:none" data-a="myes">${esc(ok)}</button></div></div>`;document.body.appendChild(m);modal.cb=cb;m.querySelector('[data-a=myes]').focus()}
+modal.close=()=>{const m=document.getElementById('mdl');if(m)m.remove();modal.cb=null};
+const calm=()=>!Store.d.anim||matchMedia('(prefers-reduced-motion:reduce)').matches;
 function flash(ok){if(calm())return;const e=document.createElement('div');e.className='fl';e.style.background=ok?'rgba(34,197,94,.18)':'rgba(239,68,68,.22)';document.body.appendChild(e);e.animate([{opacity:1},{opacity:0}],{duration:450}).onfinish=()=>e.remove()}
-function floatTxt(x,y,t){if(calm())return;const e=document.createElement('b');e.textContent=t;e.className='pt';e.style.cssText=`left:${x}px;top:${y}px;width:auto;height:auto;background:none;color:#4ade80;font-size:22px`;document.body.appendChild(e);
- e.animate([{transform:'translate(-50%,0)',opacity:1},{transform:'translate(-50%,-50px)',opacity:0}],{duration:800,easing:'ease-out'}).onfinish=()=>e.remove()}
+function floatTxt(x,y,t){if(calm())return;const e=document.createElement('b');e.textContent=t;e.className='pt';e.style.cssText=`left:${x}px;top:${y}px;width:auto;height:auto;background:none;color:#4ade80;font-size:22px;font-weight:800`;document.body.appendChild(e);
+ e.animate([{transform:'translate(-50%,0)',opacity:1},{transform:'translate(-50%,-50px)',opacity:0}],{duration:900,easing:'ease-out'}).onfinish=()=>e.remove()}
 function countUp(e,n){if(!e||calm()||n<=0)return;const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/800);e.textContent=Math.round(n*(1-(1-p)**3));if(p<1)requestAnimationFrame(f)})(t0)}
 
 /* ===== GAME LOGIC ===== */
@@ -270,13 +317,15 @@ const MODES={
  classic:{n:'Classic',i:'🎯',t:'10, 20, atau 30 soal tanpa batas waktu',lv:1},
  time:{n:'Time Attack',i:'⚡',t:'Jawab sebanyak mungkin dalam 60 detik',lv:1},
  survival:{n:'Survival',i:'❤️',t:'3 nyawa, bertahan selama mungkin',lv:2},
- mixed:{n:'Mixed Challenge',i:'🌀',t:'20 soal semua kategori, makin sulit',lv:3}};
+ mixed:{n:'Mixed Challenge',i:'🌀',t:'20 soal semua kategori, makin sulit',lv:3},
+ practice:{n:'Latihan',i:'📝',t:'Tanpa XP · pilih kategori & kesulitan bebas',lv:1}};
+Object.entries({classic:'10-30 soal',time:'60 detik',survival:'3 nyawa',mixed:'20 soal'}).forEach(([k,v])=>MODES[k].s=v);
 const RANKS=['Novice','Thinker','Analyst','Strategist','Genius','Mastermind'];
 const AV=['🌱','💡','🔍','♟️','🧬','👑','🚀','🦉','🐱','🦊','🐼','🎯'],lvOf=x=>Math.min(50,Math.floor(Math.sqrt(x/50))+1),xpAt=l=>50*(l-1)**2;
 const ymd=d=>`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`,today=()=>ymd(new Date());
 const fmt=t=>`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}`;
 const dsNow=()=>{const d=Store.d;return d.last==today()||d.last==ymd(new Date(Date.now()-864e5))?d.ds:0};
-/* achievement: [id, ikon, nama, syarat, fungsi cek(sesi, data)] dicek di akhir tiap permainan */
+const STREAK_REWARDS={3:40,7:80,14:150,30:300};
 const ACH=[
 ['first','🎮','Langkah pertama','Selesaikan 1 permainan',(s,d)=>d.games>=1],
 ['g10','🔁','Pemain setia','Selesaikan 10 permainan',(s,d)=>d.games>=10],
@@ -304,50 +353,71 @@ const ACH=[
 ['st30','💥','Streak 30','Jawab benar 30 soal beruntun',(s,d)=>d.bestStreak>=30]];
 
 const G={s:null,
- start(mode,cfg={}){if(this.s){clearInterval(this.s.tm);this.s.over=true}clearTimeout(UI.mt);const c={n:10,cat:'all',diff:-1,...cfg},N={classic:c.n,time:999,survival:999,daily:10,mixed:20}[mode];
+ start(mode,cfg={}){if(this.s){clearInterval(this.s.tm);this.s.over=true}clearTimeout(UI.mt);const c={n:10,cat:'all',diff:-1,...cfg};
+  const N={classic:c.n,time:999,survival:999,daily:10,mixed:20,practice:c.list?c.list.length:c.n||10}[mode];
   if(mode=='daily')R=seedRng([...today()].reduce((a,ch)=>a*31+ch.charCodeAt(0)|0,7));else R=Math.random;
   if(mode=='daily'||mode=='mixed')c.cat='all',c.diff=-1;
-  const s=this.s={mode,c,N,i:0,score:0,ok:0,bad:0,st:0,bs:0,lives:3,left:60,used:new Set(),t0:Date.now(),cats:{},q:null,lock:false,over:false,gain:0};
-  if(mode=='time')s.tm=setInterval(()=>{s.left--;UI.tick();if(s.left<=0)this.end()},1000);
+  if(mode==='classic'||mode==='practice'){Store.d.lastCfg={n:c.n,cat:c.cat,diff:c.diff};Store.save()}
+  const s=this.s={mode,c,N,i:0,score:0,ok:0,bad:0,st:0,bs:0,lives:3,left:60,used:new Set(),t0:Date.now(),cats:{},q:null,lock:false,over:false,gain:0,wrongs:[],practice:mode==='practice',list:c.list};
+  if(mode=='time')this.timer(s);
+  if(mode=='time'&&c.cat==='all')setTimeout(()=>toast('Memory dilewati di Time Attack (Semua)'),400);
   this.next()},
  next(){const s=this.s;if(s.over)return;if(s.i>=s.N)return this.end();
-  const d=s.c.diff>=0?s.c.diff:s.mode=='classic'?rnd(0,3):Math.min(3,Math.floor(s.i/(s.mode=='time'?4:5)));
+  const L=lvOf(Store.d.xp),mx=L>=5?3:L>=3?2:1,d=s.c.diff>=0?s.c.diff:s.mode=='daily'?[0,0,1,1,1,2,2,2,3,3][Math.min(9,s.i)]:s.mode=='classic'||s.mode=='practice'?rnd(0,mx):Math.min(3,Math.floor(s.ok*0.35+s.i*0.12));
   let q=null,all=Object.keys(CATS),cs=s.c.cat=='all'?shuf(all):[s.c.cat];
   if(s.mode=='time'&&s.c.cat=='all')cs=cs.filter(c=>c!='memory');
-  for(const c of cs){q=Bank.make(c,d,s.used);if(q)break}
-  if(!q)for(const c of shuf(all)){q=Bank.make(c,d,s.used);if(q)break}
+  if(s.list)q=s.list[s.i]||null;else for(const c of cs){q=Bank.make(c,d,s.used);if(q)break}
+  if(!q&&!s.list)for(const c of shuf(all)){q=Bank.make(c,d,s.used);if(q)break}
   if(!q)return this.end();
-  s.used.add(key(q));s.q={...q,opts:shuf(q.o),tl:q.tiles&&shuf(q.tiles),tp:[]};s.i++;s.lock=false;s.since=Date.now();UI.play()},
+  s.used.add(key(q));s.q={...q,opts:shuf(q.o),tl:q.tiles&&(q.ns?q.tiles:shuf(q.tiles)),tp:[]};s.i++;s.lock=false;s.since=Date.now();UI.play()},
  ans(v,btn){const s=this.s;if(!s||s.lock||s.over||Date.now()-s.since<250)return;const q=s.q;s.lock=true;const ok=v===q.o[0];
   const a=s.cats[q.c]=s.cats[q.c]||[0,0];a[1]++;s.gain=0;
-  if(ok){s.ok++;s.st++;s.bs=Math.max(s.bs,s.st);a[0]++;s.gain=10*(q.d+1)+Math.min(s.st,5)*2;s.score+=s.gain;Sfx.ok(s.st)}
-  else{s.bad++;s.st=0;if(s.mode=='survival')s.lives--;Sfx.no()}
-  if(navigator.vibrate)navigator.vibrate(ok?15:[30,20,30]);
+  if(ok){if(s.list){const j=Store.d.wrongLog.findIndex(w=>w.q===q.q&&w.a===q.o[0]);if(j>=0)Store.d.wrongLog.splice(j,1)}s.ok++;s.st++;s.bs=Math.max(s.bs,s.st);a[0]++;s.gain=10*(q.d+1)+Math.min(s.st,5)*2;s.score+=s.gain;Sfx.ok(s.st);
+   if(s.st===5||s.st===10||s.st===15||s.st===20){const r=btn?btn.getBoundingClientRect():{left:innerWidth/2,top:innerHeight/3,width:0,height:0};floatTxt(r.left+r.width/2,r.top-10,`Streak x${s.st}!`)}
+  }
+  else{s.bad++;s.st=0;if(s.mode=='survival')s.lives--;Sfx.no();
+   s.wrongs.push({q:q.q,a:q.o[0],e:q.e,c:q.c});
+   const wl=Store.d.wrongLog,ex=wl.findIndex(w=>w.q===q.q&&w.a===q.o[0]&&(w.sh||'')===(q.show||'')),it=ex>=0?wl.splice(ex,1)[0]:{q:q.q,a:q.o[0],e:q.e,c:q.c,d:q.d||0,o:q.o,sh:q.show||'',tiles:q.tiles,ord:q.ord,grid:q.grid,rep:q.rep,ns:q.ns,n:0};it.n=(it.n||0)+1;it.dt=today();wl.unshift(it);Store.d.wrongLog=wl.slice(0,50);
+  }
+  if(Store.d.vibrate&&navigator.vibrate)navigator.vibrate(ok?15:[30,20,30]);
   UI.mark(v,ok,btn);
   if(s.mode=='time')setTimeout(()=>{if(this.s===s&&!s.over)this.next()},700)},
  proceed(){const s=this.s;if(!s||!s.lock||s.over)return;if(s.i>=s.N||(s.mode=='survival'&&s.lives<=0))this.end();else this.next()},
+ timer(s){s.tm=setInterval(()=>{s.left--;UI.tick();if(s.left<=0)this.end()},1000)},
  tile(i,b){const s=this.s;if(!s||s.lock||s.over||Date.now()-s.since<250||b.classList.contains('d'))return;const q=s.q,x=q.tl[i];
-  if(x===q.ord[q.tp.length]){q.tp.push(x);if(!q.rep)b.classList.add('d');Sfx.tap();document.getElementById('tp').textContent=q.tp.join(' ');if(q.tp.length==q.ord.length)this.ans(q.o[0],b)}else this.ans('x',b)},
+  if(x===q.ord[q.tp.length]){q.tp.push(x);if(!q.rep)b.classList.add('d');Sfx.tap();document.getElementById('tp').textContent=q.tp.join(' ');if(q.tp.length==q.ord.length)this.ans(q.o[0],b)}
+  else{b.classList.add('wrong');Sfx.no();setTimeout(()=>b.classList.remove('wrong'),350);this.ans('x',b)}},
  end(){const s=this.s;if(!s||s.over)return;s.over=true;clearInterval(s.tm);clearTimeout(UI.mt);R=Math.random;
-  const d=Store.d,prac=s.mode=='daily'&&d.daily==today(),t=Math.round((Date.now()-s.t0)/1000),tot=s.ok+s.bad,acc=tot?Math.round(s.ok/tot*100):0,l0=lvOf(d.xp);let bonus=0;
+  const d=Store.d,prac=s.practice||(s.mode=='daily'&&d.daily==today()),t=Math.round((Date.now()-s.t0)/1000),tot=s.ok+s.bad,acc=tot?Math.round(s.ok/tot*100):0,l0=lvOf(d.xp);let bonus=0,streakBonus=0;
   if(s.mode=='daily'&&s.i>=s.N&&d.daily!=today()){bonus=50;d.daily=today()}
-  const xb=prac?0:(s.N<999&&s.i>=s.N?10:0)+(s.bs>=10?15:0)+(s.bs>=20?20:0),xp=prac?0:Math.round(s.score/4)+bonus+xb;
-  d.xp+=xp;d.score+=prac?0:s.score;d.hi=Math.max(d.hi,prac?0:s.score);d.answered+=tot;d.correct+=s.ok;d.bestStreak=Math.max(d.bestStreak,s.bs);d.games++;
+  /* streak day rewards */
+  if(!prac&&d.last!=today()){d.ds=d.last==ymd(new Date(Date.now()-864e5))?d.ds+1:1;d.last=today()}
+  const ds=d.ds;
+  for(const [day,xp] of Object.entries(STREAK_REWARDS)){
+   if(!prac&&ds>=+day&&!d.streakRewarded[day]){d.streakRewarded[day]=today();streakBonus+=xp}
+  }
+  const xb=prac?0:(s.N<999&&s.i>=s.N?10:0)+(s.bs>=10?15:0)+(s.bs>=20?20:0),xp=prac?0:Math.round(s.score/4)+bonus+xb+streakBonus;
+  const rec=!prac&&s.score>0&&s.score>(d.best[s.mode]||0);d.xp+=xp;d.answered+=tot;d.correct+=s.ok;if(!prac){d.score+=s.score;d.hi=Math.max(d.hi,s.score);d.best[s.mode]=Math.max(d.best[s.mode]||0,s.score);d.bestStreak=Math.max(d.bestStreak,s.bs);d.games++}
   for(const c in s.cats){const a=d.cat[c]=d.cat[c]||[0,0];a[0]+=s.cats[c][0];a[1]+=s.cats[c][1]}
-  if(d.last!=today()){d.ds=d.last==ymd(new Date(Date.now()-864e5))?d.ds+1:1;d.last=today()}
-  d.hist.unshift({m:s.mode,sc:s.score,acc,xp,dt:today()});d.hist=d.hist.slice(0,30);
-  const na=ACH.filter(a=>!d.ach[a[0]]&&a[4](s,d));na.forEach(a=>{d.ach[a[0]]=today();d.xp+=a[5]||30});const l1=lvOf(d.xp);Store.save();if(Store.fail&&!Store.warned){Store.warned=1;toast('Penyimpanan browser tidak tersedia, progres tidak akan tersimpan.')}
-  s.res={t,tot,acc,xp:xp+na.reduce((n,a)=>n+(a[5]||30),0),bonus,prac,na,up:l1>l0,um:Object.values(MODES).filter(m=>m.lv>l0&&m.lv<=l1)};UI.result()},
+  if(!prac){d.hist.unshift({m:s.mode,sc:s.score,acc,xp,dt:today()});d.hist=d.hist.slice(0,30)}
+  const na=prac?[]:ACH.filter(a=>!d.ach[a[0]]&&a[4](s,d));na.forEach(a=>{d.ach[a[0]]=today();d.xp+=a[5]||30});const l1=lvOf(d.xp);Store.save();if(Store.fail&&!Store.warned){Store.warned=1;toast('Penyimpanan browser tidak tersedia, progres tidak akan tersimpan.')}
+  s.res={t,tot,acc,xp:xp+na.reduce((n,a)=>n+(a[5]||30),0),bonus,streakBonus,prac,rec,na,up:l1>l0,um:Object.values(MODES).filter(m=>m.lv>l0&&m.lv<=l1)};UI.result()},
  quit(){const s=this.s;if(s){s.over=true;clearInterval(s.tm)}clearTimeout(UI.mt);R=Math.random;UI.menu()}};
 
 /* ===== UI ===== */
 const sw=d=>{const c=Object.entries(d.cat).filter(([k,a])=>CATS[k]&&a[1]>=5).map(([k,a])=>[k,a[0]/a[1]]).sort((x,y)=>y[1]-x[1]),n=k=>CATS[k][1]+' '+CATS[k][0];return c.length>1?`💪 Terkuat: <b>${n(c[0][0])}</b><br>📈 Perlu ditingkatkan: <b>${n(c.at(-1)[0])}</b>`:'<small>Main lebih banyak untuk melihat kategori terkuat dan yang perlu ditingkatkan (min. 5 soal per kategori).</small>'};
 const UI={root:null,mt:0,m:'classic',cfg:{},
- show(h,cls='scr',name='other'){this.root.innerHTML=h;this.root.firstElementChild.classList.add(cls);this.scr=name;window.scrollTo(0,0);const nv=document.getElementById('nav'),tb=this.tab;this.tab='';nv.hidden=name=='play';document.body.classList.toggle('hasnav',name!='play');nv.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.t==tb))},
+ show(h,cls='scr',name='other'){document.querySelectorAll('.lvu').forEach(e=>e.remove());this.root.innerHTML=h;this.root.firstElementChild.classList.add(cls);this.scr=name;window.scrollTo(0,0);const nv=document.getElementById('nav'),tb=this.tab;this.tab='';nv.hidden=name=='play';document.body.classList.toggle('hasnav',name!='play');nv.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.t==tb));document.body.classList.toggle('noanim',!Store.d.anim)},
  act(a,d,b){if(a!='opt')Sfx.tap();switch(a){
-  case'quick':G.start('classic',{n:10});break;
-  case'mode':{const m=MODES[d.m];if(d.m=='daily'&&Store.d.daily==today()&&lvOf(Store.d.xp)>=m.lv)toast('Daily sudah selesai. Main lagi = latihan tanpa XP');if(d.m=='daily'&&Store.d.daily==today())toast('Daily sudah selesai. Main lagi = latihan tanpa XP');if(lvOf(Store.d.xp)<m.lv)return toast(`Capai level ${m.lv} untuk membuka ${m.n}`);
-   if(d.m=='daily'||d.m=='mixed')G.start(d.m);else this.setup(d.m);break}
+  case'quick':{const lc=Store.d.lastCfg||{n:10,cat:'all',diff:-1};G.start('classic',lc);break}
+  case'mode':{const m=MODES[d.m];
+   if(lvOf(Store.d.xp)<m.lv)return toast(`Capai level ${m.lv} untuk membuka ${m.n}`);
+   if(d.m==='daily'&&Store.d.daily===today()){
+    return modal('Daily Challenge sudah selesai hari ini.\nMain lagi sebagai latihan (tanpa XP)?','Main latihan','Batal',()=>G.start('daily'));
+   }
+   if(d.m==='daily'||d.m==='mixed')G.start(d.m);
+   else if(d.m==='practice')this.setup('practice');
+   else this.setup(d.m);break}
   case'cat':G.start('classic',{n:10,cat:d.c});break;
   case'cfg':if(+d.lv>lvOf(Store.d.xp))return toast(`Capai level ${d.lv} untuk membuka ${b.textContent.replace('🔒 ','')}`);this.cfg[d.k]=d.k=='cat'?d.v:+d.v;b.parentElement.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));break;
   case'go':G.start(this.m,this.cfg);break;
@@ -357,47 +427,65 @@ const UI={root:null,mt:0,m:'classic',cfg:{},
   case'psave':Store.d.name=document.getElementById('pn').value.trim().slice(0,16)||'Pemain';Store.save();toast('Profil disimpan');this.menu();break;
   case'tile':G.tile(+d.i,b);break;
   case'next':G.proceed();break;
-  case'quit':if(confirm('Keluar dari permainan? Hasil sesi ini tidak disimpan.'))G.quit();break;
+  case'quit':modal('Keluar dari permainan?\nHasil sesi ini tidak akan disimpan.','Keluar','Lanjut main',()=>G.quit());break;
+  case'myes':{const f=modal.cb;modal.close();f&&f();break}case'mno':modal.close();break;case'howto':this.howto();break;
+  case'nshare':{const t=document.getElementById('sharetxt').dataset.t;navigator.share({text:t}).catch(()=>{});break}
   case'menu':this.menu();break;
   case'again':G.start(G.s.mode,G.s.c);break;
   case'stats':this.stats();break;
   case'ach':this.ach();break;
   case'set':this.settings();break;
   case'snd':Store.d.sound=!Store.d.sound;Store.save();this.settings();break;
-  case'reset':if(confirm('Hapus semua progres? Tindakan ini tidak bisa dibatalkan.')){Store.reset();this.menu()}break}},
- mc(l,d){return Object.entries(MODES).map(([k,m])=>{const lock=l<m.lv;return`<button class="card mode ${lock?'lock':''}" data-a="mode" data-m="${k}"><span class="mi">${lock?'🔒':m.i}</span><span class="grow"><b>${m.n}</b><small>${lock?'Terbuka di level '+m.lv:m.t}</small></span>${k=='daily'&&d.daily==today()?'<em>✔ Selesai</em>':''}</button>`}).join('')},
+  case'vib':Store.d.vibrate=!Store.d.vibrate;Store.save();this.settings();break;
+  case'anim':Store.d.anim=!Store.d.anim;Store.save();document.body.classList.toggle('noanim',!Store.d.anim);this.settings();break;
+  case'reset':modal('Hapus semua progres?\nTindakan ini tidak bisa dibatalkan.','Hapus','Batal',()=>{Store.reset();this.menu()});break;
+  case'review':this.review();break;
+  case'export':Store.export();break;
+  case'import':document.getElementById('imp').click();break;
+  case'backres':this.result();break;
+  case'share':this.share();break;
+  case'copy':{const x=document.getElementById('sharetxt').dataset.t,fb=()=>{const a=document.createElement('textarea');a.value=x;a.style.cssText='position:fixed;opacity:0;-webkit-user-select:text;user-select:text';document.body.appendChild(a);a.select();let k=false;try{k=document.execCommand('copy')}catch(e){}a.remove();toast(k?'Disalin!':'Tekan lama teks untuk menyalin')};
+   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(x).then(()=>toast('Disalin!')).catch(fb);else fb();break}
+  case'wrongplay':{const L=Store.d.wrongLog.filter(w=>w.o&&w.o.length).sort((a,b)=>(b.n||1)-(a.n||1)).slice(0,10).map(w=>({q:w.q,o:w.o,e:w.e,c:w.c,d:w.d||0,show:w.sh||undefined,tiles:w.tiles,ord:w.ord,grid:w.grid,rep:w.rep,ns:w.ns}));
+   if(!L.length)return toast('Belum ada soal salah yang bisa diulang');G.start('practice',{n:L.length,list:L});toast('Mengulang soal yang pernah salah');break}
+ }},
+ mc(l,d){return Object.entries(MODES).map(([k,m])=>{const lock=l<m.lv;return`<button class="card mode ${lock?'lock':''}" data-a="mode" data-m="${k}"><span class="mi">${lock?'🔒':m.i}</span><span class="grow"><b>${m.n}</b><small>${lock?'Terbuka di level '+m.lv:m.t+(d.best&&d.best[k]?' · Terbaik '+d.best[k]:'')}</small></span>${k=='daily'&&d.daily==today()?'<em>✔ Selesai</em>':''}</button>`}).join('')},
  modes(){this.tab='play';const d=Store.d;this.show(`<div><h2>Pilih mode</h2>${this.mc(lvOf(d.xp),d)}</div>`)},
  cats(){this.tab='cats';const d=Store.d;this.show(`<div><h2>Kategori</h2>${Object.entries(CATS).map(([k,v])=>{const a=d.cat[k]||[0,0],p=a[1]?Math.round(a[0]/a[1]*100):0;return`<button class="card mode" data-a="catsel" data-c="${k}"><span class="mi">${v[1]}</span><span class="grow"><b>${v[0]}</b><div class="bar"><i style="width:${p}%"></i></div><small>${a[1]?p+'% benar dari '+a[1]+' soal':'Belum dimainkan'}</small></span></button>`}).join('')}</div>`)},
- prof(){this.tab='menu';const d=Store.d,acc=d.answered?Math.round(d.correct/d.answered*100):0;this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>Profil pemain</h2><div class="card"><small>Nama (maks. 16 huruf)</small><input id="pn" maxlength="16" value="${esc(d.name)}"></div><h3>Avatar</h3><div class="chips">${AV.map((a,i)=>`<button class="chip ${d.av==i?'on':''}" data-a="av" data-i="${i}">${a}</button>`).join('')}</div><div class="grid"><div class="card"><b>${lvOf(d.xp)}</b><small>Level</small></div><div class="card"><b>${d.xp}</b><small>Total XP</small></div><div class="card"><b>${d.games}</b><small>Game dimainkan</small></div><div class="card"><b>${d.correct}</b><small>Jawaban benar</small></div></div><div class="card">Akurasi keseluruhan: <b>${acc}%</b></div><button class="cta" data-a="psave">SIMPAN</button></div>`)},
- menu(){this.tab='menu';const d=Store.d,l=lvOf(d.xp),a=xpAt(l),b=xpAt(l+1),p=Math.min(100,Math.round((d.xp-a)/(b-a)*100));
+ prof(){this.tab='menu';const d=Store.d,acc=d.answered?Math.round(d.correct/d.answered*100):0,l=lvOf(d.xp);this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>Profil pemain</h2><div class="card"><small>Nama (maks. 16 huruf)</small><input id="pn" maxlength="16" value="${esc(d.name)}"></div><h3>Avatar</h3><div class="chips">${AV.map((a,i)=>`<button class="chip ${d.av==i?'on':''}" data-a="av" data-i="${i}">${a}</button>`).join('')}</div><p class="note">Avatar otomatis menyesuaikan rank jika belum dipilih.</p><div class="grid"><div class="card"><b>${l}</b><small>Level</small></div><div class="card"><b>${d.xp}</b><small>Total XP</small></div><div class="card"><b>${d.games}</b><small>Game dimainkan</small></div><div class="card"><b>${d.correct}</b><small>Jawaban benar</small></div></div><div class="card">Akurasi keseluruhan: <b>${acc}%</b></div><button class="cta" data-a="psave">SIMPAN</button></div>`)},
+ howto(){modal('Cara bermain NEURO QUEST\n\n• Jawab soal untuk skor dan XP.\n• Daily Challenge: 10 soal baru tiap hari.\n• Hard dan Expert terbuka di level 3 dan 5.\n• Salah? Baca penjelasannya, lalu ulang soal yang salah dari menu Statistik.','Mulai',null,()=>{Store.d.seen=true;Store.save()})},
+ menu(){this.tab='menu';const d=Store.d,l=lvOf(d.xp),a=xpAt(l),b=xpAt(l+1),p=Math.min(100,Math.round((d.xp-a)/(b-a)*100)),rk=RANKS[Math.min(5,Math.floor((l-1)/3))],
+  av=d.av>=0?AV[d.av]:AV[Math.min(5,Math.floor((l-1)/3))],ds=dsNow(),done=d.daily===today(),lc=d.lastCfg||{},cn=lc.cat&&CATS[lc.cat]?CATS[lc.cat][0]:'Semua kategori',nx=ACH.find(x=>!d.ach[x[0]]),n=Object.keys(d.ach).length;
+  const tl=['classic','time','survival','mixed'].map(k=>{const m=MODES[k],lock=l<m.lv;return`<button class="card tl ${lock?'lock':''}" data-a="mode" data-m="${k}"><span class="mi">${lock?'🔒':m.i}</span><b>${m.n}</b><small>${lock?'Level '+m.lv:d.best[k]?'Terbaik '+d.best[k]:m.s}</small></button>`}).join('');
   this.show(`<div><h1 class="logo">NEURO QUEST</h1>
-  <section class="card prof"><button class="av" data-a="prof" aria-label="Profil">${d.av>=0?AV[d.av]:AV[Math.min(5,Math.floor((l-1)/3))]}</button><div class="grow"><b>${esc(d.name)}</b> · ${RANKS[Math.min(5,Math.floor((l-1)/3))]} Lv ${l}
-  <div class="bar"><i data-w="${p}" style="width:0"></i></div><small>${d.xp-a} / ${b-a} XP ke level berikutnya<br>${d.games} game · ${d.answered?Math.round(d.correct/d.answered*100):0}% akurasi${dsNow()?`<br>🔥 ${dsNow()} hari beruntun`:''}</small></div>
-  <div class="sc"><b>${d.score}</b><small>skor total</small></div></section>
-  <button class="cta" data-a="quick">▶ PLAY NOW</button>
-  <h2>Mode permainan</h2>
-  ${this.mc(l,d)}
-  <h2>Kategori</h2><div class="chips">${Object.entries(CATS).map(([k,v])=>`<button class="chip" data-a="cat" data-c="${k}">${v[1]} ${v[0]}</button>`).join('')}</div>
-  <div class="row"><button class="ghost" data-a="ach">🏆 ${Object.keys(d.ach).length}/${ACH.length}</button><button class="ghost" data-a="stats">📊 Statistik</button><button class="ghost" data-a="set">⚙️ Atur</button></div></div>`,'scb','menu');setTimeout(()=>document.querySelectorAll('[data-w]').forEach(e=>e.style.width=e.dataset.w+'%'),30)},
- setup(m,ct){this.tab='play';this.m=m;this.cfg={n:10,cat:ct||'all',diff:-1};const c=this.cfg,M=MODES[m],L=lvOf(Store.d.xp);
+  <section class="card prof"><button class="av" data-a="prof" aria-label="Profil">${av}</button><div class="grow"><div class="nm"><b>${esc(d.name)}</b><small>${rk} · Lv ${l}</small></div><div class="bar"><i data-w="${p}" style="width:0"></i></div><small>${d.xp-a} / ${b-a} XP</small></div><div class="sc"><b>${d.score}</b><small>skor</small></div></section>
+  <button class="card mode dly ${done?'lock':''}" data-a="mode" data-m="daily"><span class="mi">📅</span><span class="grow"><b>Daily Challenge</b><small>${done?'Selesai hari ini ✔ · bisa latihan ulang':'10 soal · bonus +50 XP'}</small></span>${ds?`<em>🔥 ${ds} hari</em>`:''}</button>
+  <button class="cta" data-a="quick">▶ PLAY NOW<small>Classic ${lc.n||10} soal · ${cn}</small></button>
+  <h2>Mode</h2><div class="gm">${tl}</div>
+  <button class="card mode" data-a="ach" style="margin-top:14px"><span class="mi">🏆</span><span class="grow"><b>Achievement ${n}/${ACH.length}</b><small>${nx?'Berikutnya: '+nx[2]+' · '+nx[3]:'Semua terbuka!'}</small></span></button></div>`,'scb','menu');setTimeout(()=>document.querySelectorAll('[data-w]').forEach(e=>e.style.width=e.dataset.w+'%'),30)},
+ setup(m,ct){this.tab='play';this.m=m;
+  const lc=Store.d.lastCfg||{};
+  this.cfg={n:lc.n||10,cat:ct||lc.cat||'all',diff:lc.diff!=null?lc.diff:-1};
+  const c=this.cfg,M=MODES[m],L=lvOf(Store.d.xp);
   const chips=(k,arr)=>`<div class="chips">${arr.map(([v,t,lv=1])=>`<button class="chip ${c[k]===v?'on':''} ${lv>L?'lock':''}" data-a="cfg" data-k="${k}" data-v="${v}" data-lv="${lv}">${lv>L?'🔒 ':''}${t}</button>`).join('')}</div>`;
   this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>${M.i} ${M.n}</h2>
-  ${m=='classic'?'<h3>Jumlah soal</h3>'+chips('n',[[10,'10'],[20,'20'],[30,'30']]):''}
+  ${m==='practice'?'<p class="mu">Mode latihan — tidak menambah XP & achievement.</p>':''}
+  <h3>Jumlah soal</h3>${chips('n',[[5,'5'],[10,'10'],[20,'20'],[30,'30']])}
   <h3>Kategori</h3>${chips('cat',[['all','Semua'],...Object.entries(CATS).map(([k,v])=>[k,v[1]+' '+v[0]])])}
-  <h3>Kesulitan</h3>${chips('diff',[[-1,m=='classic'?'Acak':'Bertahap'],...DN.map((x,i)=>[i,x,[1,1,3,5][i]])])}
+  <h3>Kesulitan</h3>${chips('diff',[[-1,'Acak'],...DN.map((x,i)=>[i,x,[1,1,3,5][i]])])}
   <button class="cta" data-a="go">MULAI</button></div>`)},
  play(){const s=G.s,q=s.q;clearTimeout(this.mt);
   const info=s.mode=='time'?`⏱ ${s.left}s`:s.mode=='survival'?`${'❤️'.repeat(Math.max(0,s.lives))} #${s.i}`:`${s.i}/${s.N}`;
   const pct=s.mode=='time'?s.left/60*100:s.mode=='survival'?s.lives/3*100:(s.i-1)/s.N*100;
   this.show(`<div><div class="top"><button class="x" data-a="quit" aria-label="Keluar">✕</button><div class="grow"><div class="bar"><i id="pb" style="width:${pct}%"></i></div></div><b class="pill" id="sc">⭐ ${s.score}</b></div>
-  <div class="meta"><span>${CATS[q.c][1]} ${CATS[q.c][0]} · ${DN[q.d]}${s.st>=3?` · 🔥${s.st}`:''}</span><span id="inf">${info}</span></div>
+  <div class="meta"><span>${CATS[q.c][1]} ${CATS[q.c][0]} · ${DN[q.d]}${s.st>=3?` · 🔥${s.st}`:''}${s.practice?' · Latihan':''}</span><span id="inf">${info}</span></div>
   <div class="card qc" style="border-left:4px solid ${COL[q.c]}"><p class="q" id="qt">${q.show?'Perhatikan urutan ini dan ingat baik-baik':q.q}</p>${q.show?`<div class="seq" id="seq">${q.show}</div>`:''}</div>
-  ${q.tl?`<div class="seq" id="tp" style="min-height:44px"></div><div class="opts tiles ${q.show?'hid':''}" id="opts">${q.tl.map((o,i)=>`<button class="tile" data-a="tile" data-i="${i}">${o}</button>`).join('')}</div>`:`<div class="opts ${q.show?'hid':''} ${q.grid?'g3':''}" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-a="opt" data-i="${i}"><i>${'ABCD'[i]}</i><span>${o}</span></button>`).join('')}</div>`}<div id="fb"></div></div>`,'nq','play');
-  if(q.show)this.mt=setTimeout(()=>{const e=document.getElementById('seq');if(!e)return;e.remove();document.getElementById('qt').textContent=q.q;document.getElementById('opts').classList.remove('hid')},1500+q.show.split(' ').length*650)},
+  ${q.tl?`<div class="seq" id="tp" style="min-height:44px"></div><div class="opts tiles ${q.ns?'g3':''} ${q.show?'hid':''}" id="opts">${q.tl.map((o,i)=>`<button class="tile" data-a="tile" data-i="${i}">${o}</button>`).join('')}</div>`:`<div class="opts ${q.show?'hid':''} ${q.grid?'g3':''}" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-a="opt" data-i="${i}"><i>${'ABCD'[i]}</i><span>${o}</span></button>`).join('')}</div>`}<div id="fb" aria-live="polite"></div></div>`,'nq','play');
+  if(q.show)this.mt=setTimeout(()=>{const e=document.getElementById('seq');if(!e)return;e.remove();document.getElementById('qt').textContent=q.q;document.getElementById('opts').classList.remove('hid')},1500+(q.rt||q.show.split(' ').length*650))},
  tick(){const s=G.s,e=document.getElementById('inf'),p=document.getElementById('pb');if(s.left<=5&&s.left>0)Sfx.p(880,.06,'square');if(e){e.textContent=`⏱ ${Math.max(0,s.left)}s`;e.classList.toggle('warn',s.left<=10)}if(p)p.style.width=Math.max(0,s.left)/60*100+'%'},
  mark(v,ok,btn){const s=G.s,q=s.q,bs=document.querySelectorAll('.opt');
   bs.forEach((b,i)=>{if(q.opts[i]===q.o[0])b.classList.add('ok')});
-  if(!ok&&btn)btn.classList.add('no');
+  if(!ok&&btn&&!btn.classList.contains('tile'))btn.classList.add('no');
   document.getElementById('sc').textContent='⭐ '+s.score;
   flash(ok);if(btn){const r=btn.getBoundingClientRect();if(ok){burst(r.left+r.width/2,r.top+r.height/2);floatTxt(r.left+r.width/2,r.top,'+'+s.gain)}}
   if(s.mode=='time')return;
@@ -408,31 +496,57 @@ const UI={root:null,mt:0,m:'classic',cfg:{},
   const ev=r.acc>=90?'Luar biasa. Penalaranmu sangat tajam.':r.acc>=70?'Bagus. Coba naikkan tingkat kesulitan.':r.acc>=50?'Cukup baik. Latihan rutin akan membantu.':'Masih perlu latihan. Mulai dari Easy dan baca penjelasan tiap soal.';
   this.show(`<div class="res"><h2>${s.mode=='survival'?'Game Over':s.mode=='time'?'Waktu habis!':'Selesai!'}</h2><div class="big">${s.score}</div><small>skor</small>
   <div class="grid"><div class="card"><b>${s.ok}</b><small>Benar</small></div><div class="card"><b>${s.bad}</b><small>Salah</small></div><div class="card"><b>${r.acc}%</b><small>Akurasi</small></div><div class="card"><b>${fmt(r.t)}</b><small>Waktu</small></div></div>
-  <div class="card">+${r.xp} XP${r.bonus?' (termasuk bonus harian +50)':''}${r.prac?' (latihan ulang Daily, tanpa XP)':''}<br><small>Streak terbaik sesi ini: ${s.bs}</small></div>
+  <div class="card">+${r.xp} XP${r.bonus?' (bonus harian +50)':''}${r.streakBonus?` (streak +${r.streakBonus})`:''}${r.prac?' (latihan, tanpa XP)':''}<br><small>Streak terbaik sesi ini: ${s.bs}</small></div>
   <div class="card"><b>Level ${L} · ${RANKS[Math.min(5,Math.floor((L-1)/3))]}</b><div class="bar"><i style="width:${Lp}%"></i></div><small>${d.xp-La} / ${Lb-La} XP ke level berikutnya</small></div>
-  ${r.up?`<div class="card up">🎉 Naik ke level ${lvOf(d.xp)}!</div>`:''}${r.um.map(m=>`<div class="card up">🔓 Mode terbuka: ${m.n}</div>`).join('')}${r.na.map(a=>`<div class="card up">${a[1]} <b>${a[2]}</b><br><small>${a[3]}</small></div>`).join('')}
-  <p>${ev}</p><button class="cta" data-a="again">PLAY AGAIN</button><div class="row" style="margin-top:0"><button class="ghost" data-a="menu">BACK TO MENU</button><button class="ghost" data-a="stats">VIEW STATISTICS</button></div></div>`);
+  ${r.rec?`<div class="card up">🏆 Rekor baru di ${MODES[s.mode].n}!</div>`:''}${r.up?`<div class="card up">🎉 Naik ke level ${lvOf(d.xp)}!</div>`:''}${r.um.map(m=>`<div class="card up">🔓 Mode terbuka: ${m.n}</div>`).join('')}${r.na.map(a=>`<div class="card up">${a[1]} <b>${a[2]}</b><br><small>${a[3]}</small></div>`).join('')}
+  <p>${ev}</p>
+  ${s.wrongs&&s.wrongs.length?`<button class="ghost w" data-a="review">📋 Lihat ${s.wrongs.length} Jawaban Salah</button>`:''}
+  <button class="ghost w" data-a="share">📤 Bagikan Hasil</button>
+  <button class="cta" data-a="again">PLAY AGAIN</button><div class="row" style="margin-top:0"><button class="ghost" data-a="menu">BACK TO MENU</button><button class="ghost" data-a="stats">VIEW STATISTICS</button></div></div>`);
   if(r.up||r.na.length){Sfx.up();burst(innerWidth/2,innerHeight/3,30)}else if(r.acc>=70)burst(innerWidth/2,innerHeight/3,18);countUp(this.root.querySelector('.big'),s.score);if(r.up&&!calm()){const e=document.createElement('div');e.className='lvu';e.innerHTML=`LEVEL UP!<b>${L}</b>`;document.body.appendChild(e);setTimeout(()=>e.remove(),1900)}},
+ share(){const s=G.s,r=s.res,mode=MODES[s.mode]?.n||s.mode;
+  const txt=`🧠 NEURO QUEST\nMode: ${mode}\nSkor: ${s.score} · Akurasi: ${r.acc}%\nBenar ${s.ok}/${r.tot} · Streak terbaik: ${s.bs}\n+${r.xp} XP\n\nAsah otakmu juga!`;
+  this.show(`<div><button class="back" data-a="backres">← Hasil</button><h2>Bagikan Hasil</h2>
+  <div class="share-box" id="sharetxt" data-t="${esc(txt)}">${esc(txt).replace(/\n/g,'<br>')}</div>
+  <button class="cta" data-a="copy">📋 Salin Teks</button>${navigator.share?'<button class="ghost w" data-a="nshare">📲 Bagikan lewat aplikasi</button>':''}
+  <p class="mu">Salin lalu tempel ke WhatsApp / Instagram / Twitter.</p></div>`)},
+ review(){const s=G.s;if(!s||!s.wrongs||!s.wrongs.length)return this.result();
+  this.show(`<div><button class="back" data-a="backres">← Hasil</button><h2>Jawaban Salah (${s.wrongs.length})</h2>
+  <div class="card wrong-list">${s.wrongs.map((w,i)=>`<div class="wrong-item"><b>${i+1}. ${esc(w.q)}</b><small>Benar: <b style="color:var(--ok)">${esc(w.a)}</b><br>${esc(w.e)}</small></div>`).join('')}</div>
+  <button class="cta" data-a="backres">Kembali ke Hasil</button></div>`)},
  ach(){this.tab='ach';const d=Store.d,n=Object.keys(d.ach).length;
   this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>Achievement</h2><p class="mu">${n} dari ${ACH.length} terbuka</p><div class="bar"><i style="width:${n/ACH.length*100}%"></i></div>
-  ${ACH.map(a=>{const ok=d.ach[a[0]];return`<div class="card hr ${ok?'':'lock'}"><span class="mi">${ok?a[1]:'🔒'}</span><span class="grow"><b>${a[2]}</b><br><small>${a[3]} · +${a[5]||30} XP</small></span>${ok?`<small>${ok}</small>`:''}</div>`}).join('')}</div>`)},
+  ${ACH.map(a=>{const ok=d.ach[a[0]];return`<div class="card hr ${ok?'':'lock'}"><span class="mi">${ok?a[1]:'🔒'}</span><span class="grow"><b>${a[2]}</b><br><small>${a[3]} · +${a[5]||30} XP</small></span>${ok?`<small>${esc(ok)}</small>`:''}</div>`}).join('')}</div>`)},
  stats(){this.tab='stats';const d=Store.d,acc=d.answered?Math.round(d.correct/d.answered*100):0,B=(n,t)=>`<div class="card"><b>${n}</b><br><small>${t}</small></div>`;
   this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>Statistik</h2>
   <div class="grid">${B(d.score,'Skor total')}${B(d.correct,'Jawaban benar')}${B(d.answered-d.correct,'Jawaban salah')}${B(d.hi,'Skor tertinggi')}${B(d.games?Math.round(d.score/d.games):0,'Rata-rata skor')}${B(d.games,'Game dimainkan')}${B(d.answered,'Soal dijawab')}${B(acc+'%','Akurasi')}${B(d.bestStreak,'Streak jawaban terbaik')}${B(dsNow(),'Hari beruntun')}${B(d.xp,'Total XP')}${B(Object.keys(d.ach).length+'/'+ACH.length,'Achievement')}</div>
   <div class="card">${sw(d)}</div><h3>Akurasi per kategori</h3>${Object.entries(CATS).map(([k,v])=>{const a=d.cat[k]||[0,0],p=a[1]?Math.round(a[0]/a[1]*100):0;return`<div class="crow"><span>${v[1]} ${v[0]}</span><div class="bar"><i style="width:${p}%"></i></div><small>${a[1]?p+'%':'-'}</small></div>`}).join('')}
-  <h3>Riwayat terakhir</h3>${d.hist.length?d.hist.slice(0,10).map(h=>`<div class="card hr"><span>${MODES[h.m].n}</span><b>${h.sc}</b><small>${h.acc}% · +${h.xp||0} XP · ${h.dt}</small></div>`).join(''):'<p class="mu">Belum ada permainan. Tekan PLAY NOW untuk mulai.</p>'}</div>`)},
+  <h3>Riwayat terakhir</h3>${d.hist.length?d.hist.slice(0,10).map(h=>`<div class="card hr"><span>${MODES[h.m]?.n||h.m}</span><b>${h.sc}</b><small>${h.acc}% · +${h.xp||0} XP · ${esc(h.dt)}</small></div>`).join(''):'<p class="mu">Belum ada permainan. Tekan PLAY NOW untuk mulai.</p>'}
+  ${d.wrongLog&&d.wrongLog.length?`<h3>Soal yang sering salah</h3><div class="card wrong-list" style="max-height:180px">${d.wrongLog.slice().sort((a,b)=>(b.n||1)-(a.n||1)).slice(0,8).map(w=>`<div class="wrong-item"><b>${esc(w.q)}${w.n>1?' ×'+w.n:''}</b><small>Benar: ${esc(w.a)}</small></div>`).join('')}</div>
+  <button class="ghost w" data-a="wrongplay" style="margin-top:8px">📝 Ulangi soal yang salah</button>`:''}</div>`)},
  settings(){this.tab='set';this.show(`<div><button class="back" data-a="menu">← Menu</button><h2>Pengaturan</h2>
   <button class="card tog" data-a="snd"><span>Suara</span><b>${Store.d.sound?'ON 🔊':'OFF 🔇'}</b></button>
+  <button class="card tog" data-a="vib"><span>Getaran</span><b>${Store.d.vibrate?'ON 📳':'OFF'}</b></button>
+  <button class="card tog" data-a="anim"><span>Animasi</span><b>${Store.d.anim?'ON ✨':'OFF'}</b></button>
   <div class="card"><label for="vol">Volume</label><input id="vol" type="range" min="0" max="100" value="${Math.round(Store.d.vol*100)}"></div>
-  <p class="mu">Bank soal: ${Bank.fixed()} soal tetap, ditambah soal acak dari generator (math, pola, memory, logic, kata).<br>NEURO QUEST v1.1</p>
-  <button class="ghost w" data-a="reset" style="margin-top:14px;color:#fca5a5">Reset semua progres</button></div>`)}};
+  <button class="ghost w" data-a="howto" style="margin-top:12px">❓ Cara bermain</button>
+  <div class="row" style="margin-top:10px"><button class="ghost" data-a="export">📤 Export</button><button class="ghost" data-a="import">📥 Import</button></div>
+  <input type="file" id="imp" accept=".json,application/json" style="display:none">
+  <p class="mu" style="margin-top:16px">Bank soal: ${Bank.fixed()}+ fixed + generator dinamis.<br>
+  NEURO QUEST <b>v1.4</b> · Full (Phase 1–6)<br>
+  ${navigator.serviceWorker&&navigator.serviceWorker.controller?'Offline aktif':'Offline: perlu hosting + sw.js'} · Single-file · Mobile-first</p>
+  <button class="ghost w" data-a="reset" style="margin-top:14px;color:#fca5a5">Reset semua progres</button></div>`);
+  document.getElementById('imp').onchange=e=>{if(e.target.files[0])Store.import(e.target.files[0])}}};
 
 Store.load();UI.root=document.getElementById('app');
 document.addEventListener('input',e=>{if(e.target.id=='vol')Store.d.vol=e.target.value/100});document.addEventListener('change',e=>{if(e.target.id=='vol'){Store.save();Sfx.tap()}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)UI.act(b.dataset.a,b.dataset,b)});
-UI.menu();if(Store.fail)toast('Penyimpanan browser tidak tersedia, progres tidak akan tersimpan.');
+UI.menu();if(Store.fail)toast('Penyimpanan browser tidak tersedia, progres tidak akan tersimpan.');if(!Store.d.seen)UI.howto();
+document.addEventListener('visibilitychange',()=>{const s=G.s;if(document.hidden&&s&&!s.over&&s.mode=='time'&&s.tm){clearInterval(s.tm);s.tm=0;modal('Permainan dijeda','Lanjut',null,()=>{if(G.s===s&&!s.over)G.timer(s)})}});
 addEventListener('error',()=>{try{if(G.s){G.s.over=true;clearInterval(G.s.tm)}toast('Terjadi kesalahan. Kembali ke menu.');UI.menu()}catch(e){}});
-try{history.pushState(null,'');addEventListener('popstate',()=>{history.pushState(null,'');if(UI.scr=='play'){if(confirm('Keluar dari permainan? Hasil sesi ini tidak disimpan.'))G.quit()}else if(UI.scr!='menu')UI.menu()})}catch(e){}
+try{history.pushState(null,'');addEventListener('popstate',()=>{history.pushState(null,'');if(UI.scr=='play'){modal('Keluar dari permainan?\nHasil sesi ini tidak disimpan.','Keluar','Lanjut main',()=>G.quit())}else if(UI.scr!='menu')UI.menu()})}catch(e){}
+/* PWA: butuh hosting http(s) + sw.js & manifest.json di folder yang sama */
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script>
 </body>
 </html>
